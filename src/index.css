@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@font-face {
+    font-family: font1;
+    src: url('/fonts/Lausanne-300.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: font2;
+    src: url('/fonts/Lausanne-500.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* MoveLink Container */
+.movelink {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+}
+
+/* Show MoveLink on hover of parent link */
+.link:hover .movelink {
+    opacity: 1;
+}
+
+/* Horizontal scrolling for items */
+.MoveX {
+    display: inline-flex;
+    animation: moveAnimation 10s linear infinite;
+    white-space: nowrap;
+}
+
+/* Keyframes for smooth horizontal scroll */
+@keyframes moveAnimation {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-50%); /* adjust -50% to control loop */
+    }
+}
+
+/* Optional: Adjust spacing between repeated items */
+.MoveX > * {
+    margin-right: 2rem;
+}
